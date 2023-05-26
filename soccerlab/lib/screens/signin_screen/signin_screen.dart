@@ -6,7 +6,10 @@ import '../../utils.dart';
 import '../components/default_button.dart';
 import './component/form_error.dart';
 import '../main_screens.dart';
-
+/*
+ * 로그인 페이지
+ * ID / PWD 입력/검증 -> mainScreen 호출
+ */
 class OnSinginScreen extends StatefulWidget {
 	@override
 	_SinginScreenState createState() => _SinginScreenState();
@@ -22,7 +25,7 @@ class _SinginScreenState extends State<OnSinginScreen> {
 	Widget build(BuildContext context) {
 		return Scaffold(
 			appBar: AppBar(
-				title: Text('Sign In'),
+				title: Text('로그인'),
 			),
 			body: Center(
 				child: GestureDetector(
@@ -83,12 +86,9 @@ class _SinginScreenState extends State<OnSinginScreen> {
 								),
 								ElevatedButton(
 									onPressed: () {
-										setState(() {
-											emailText = emailController.text;
-											pwdText = pwdController.text;
-										});
+										_callPageRoute(context, MainScreens());
 									},
-									child: Text('Update'),
+									child: Text('로그인'),
 								),
 							],
 						),
@@ -96,5 +96,9 @@ class _SinginScreenState extends State<OnSinginScreen> {
 				),
 			),
 		);
+	}
+	void _callPageRoute(BuildContext context, Widget widget) {
+		Navigator.pushReplacement(
+				context, MaterialPageRoute(builder: (BuildContext context) => widget));
 	}
 }

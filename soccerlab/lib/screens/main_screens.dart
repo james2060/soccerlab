@@ -5,7 +5,11 @@ import 'package:flutter_svg/flutter_svg.dart';
 import '../constants.dart';
 import '../screens/splash_screen/splash_screen.dart';
 import '../screens/onboarding_screen/onboarding_screen.dart';
-
+import '../screens/home_screen/home_screen.dart';
+import '../screens/Fixtures_screen/fixtures_screen.dart';
+import '../screens/team_screen/team_screen.dart';
+import '../screens/invite_screen/invite_screen.dart';
+import '../screens/profile_screen/profile_screen.dart';
 
 class MainScreens extends StatefulWidget {
   static String routeName = "/main_screens";
@@ -22,7 +26,7 @@ class _MainScreensState extends State<MainScreens> {
     return Scaffold(
       body: IndexedStack(
         index: _selectedIndex,
-        children: [ OnWelcomeScreen(),OnboardingScreen(),
+        children: [ OnHomeScreen(),OnFixturesScreen(),OnTeamScreen(),OnInviteScreen(),OnProfileScreen(),
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(

@@ -89,7 +89,7 @@ class OnWelcomeScreen extends StatelessWidget {
                                 margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 1*fem, 0*fem),
                                 child: TextButton(
                                   onPressed: () {
-                                    _completeSplash(context, OnSinginScreen());
+                                    _callPageRoute(context, OnSinginScreen());
                                   },
                                   style: TextButton.styleFrom (
                                     padding: EdgeInsets.zero,
@@ -261,7 +261,7 @@ class OnWelcomeScreen extends StatelessWidget {
         ),
     );
   }
-  void _completeSplash(BuildContext context, Widget widget) {
+  void _callPageRoute(BuildContext context, Widget widget) {
     Navigator.pushReplacement(
         context, MaterialPageRoute(builder: (BuildContext context) => widget));
   }

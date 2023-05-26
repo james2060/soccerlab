@@ -6,7 +6,12 @@ import '../../utils.dart';
 import '../main_screens.dart';
 import '../welcom_screen/welcome_screen.dart';
 import '../signin_screen/signin_screen.dart';
-
+import '../signin_screen/login_screen.dart';
+/*
+ * SplashScreen -> OnboardingScreen -> SigninScreen
+ * 로그인 또는 팀생성 페이지
+ * 추후 자동로그인 기능 추가, 팀생성은 로그인 이후에 할 수 있도록 유도
+ */
 class OnboardingScreen extends StatelessWidget {
   static String routeName = "/welcome";
 
@@ -19,24 +24,29 @@ class OnboardingScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: kPrimaryColor,
 
-      body: SingleChildScrollView(
+      //body: SingleChildScrollView(
+      body: SafeArea(
         child: Container(
-          decoration: BoxDecoration (
+/*          decoration: BoxDecoration (
             color: Color(0xffffffff),
-          ),
+          ),*/
           child: Column(
+
             children: [
-              Container(
-                margin: EdgeInsets.fromLTRB(3*fem, 0*fem, 0*fem, 158.23*fem),
-                width: 228*fem,
-                height: 211.77*fem,
-                child: Image.asset(
-                  'assets/images/club-logo-p8i.png',
+              Expanded(
+                child:Container(
+                  margin: EdgeInsets.fromLTRB(3*fem, 0*fem, 0*fem, 158.23*fem),
                   width: 228*fem,
                   height: 211.77*fem,
+                  child: Image.asset(
+                    'assets/images/club-logo-p8i.png',
+                    width: 228*fem,
+                    height: 211.77*fem,
+                  ),
                 ),
               ),
-              Container(
+              Expanded(
+                child:Container(
                 // textSeN (1:59)
                 margin: EdgeInsets.fromLTRB(20*fem, 0*fem, 19*fem, 20*fem),
                 width: double.infinity,
@@ -112,6 +122,7 @@ class OnboardingScreen extends StatelessWidget {
                             ),
                             child: Row(
                               crossAxisAlignment: CrossAxisAlignment.center,
+                              mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Container(
                                   // ZH4 (1:68)
@@ -152,83 +163,55 @@ class OnboardingScreen extends StatelessWidget {
                         ],
                       ),
                     ),
+
                     Container(
-                      // autogroupiqhxGKt (RiX9RgxueQxkzJ79x3iQHx)
                       margin: EdgeInsets.fromLTRB(8*fem, 0*fem, 9*fem, 0*fem),
                       width: double.infinity,
                       height: 60*fem,
-                      child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Container(
-                            // ghostbuttonMcE (1:63)
-                            margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 11*fem, 0*fem),
-                            child: TextButton(
-                              onPressed: () {
-                                _completeSplash(context, OnWelcomeScreen());
-                              },
-                              style: TextButton.styleFrom (
-                                padding: EdgeInsets.zero,
-                              ),
-                              child: Container(
-                                width: 154*fem,
-                                height: double.infinity,
-                                decoration: BoxDecoration (
-                                  border: Border.all(color: Color(0xff373737)),
-                                  borderRadius: BorderRadius.circular(52*fem),
-                                ),
-                                child: Center(
-                                  child: Text(
-                                    '로그인',
-                                    textAlign: TextAlign.center,
-                                    style: SafeGoogleFont (
-                                      'Poppins',
-                                      fontSize: 16*ffem,
-                                      fontWeight: FontWeight.w600,
-                                      height: 1.5*ffem/fem,
-                                      color: Color(0xff373737),
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ),
+                      child: Container(
+                        margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 11*fem, 0*fem),
+                        child: TextButton(
+                          onPressed: () {
+                            _callPageRoute(context, OnLoginScreen());
+                          },
+                          style: TextButton.styleFrom (
+                            padding: EdgeInsets.zero,
                           ),
-                          Container(
-                            // primarybuttonw4e (1:60)
+                          child: Container(
                             width: 154*fem,
                             height: double.infinity,
                             decoration: BoxDecoration (
-                              color: Color(0xff04754d),
+                              border: Border.all(color: Color(0xff373737)),
                               borderRadius: BorderRadius.circular(52*fem),
                             ),
                             child: Center(
                               child: Text(
-                                '팀 생성',
+                                '로그인',
                                 textAlign: TextAlign.center,
                                 style: SafeGoogleFont (
                                   'Poppins',
                                   fontSize: 16*ffem,
                                   fontWeight: FontWeight.w600,
                                   height: 1.5*ffem/fem,
-                                  color: Color(0xffffffff),
+                                  color: Color(0xff373737),
                                 ),
                               ),
                             ),
                           ),
-                        ],
+                        ),
                       ),
+
                     ),
                   ],
                 ),
-              ),
-
+              ),),
               ],
           ),
           ),
         ),
       );
   }
-  void _completeSplash(BuildContext context, Widget widget) {
+  void _callPageRoute(BuildContext context, Widget widget) {
     Navigator.pushReplacement(
         context, MaterialPageRoute(builder: (BuildContext context) => widget));
   }

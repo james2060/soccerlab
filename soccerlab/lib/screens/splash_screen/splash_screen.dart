@@ -3,9 +3,11 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:soccerlab/screens/onboarding_screen/onboarding_screen.dart';
 import '../../constants.dart';
 import '../../utils.dart';
-import '../signin_screen/signin_screen.dart';
+
 import '../onboarding_screen/onboarding_screen.dart';
+
 import '../main_screens.dart';
+
 
 
 class SplashScreen extends StatelessWidget {
@@ -69,18 +71,6 @@ class SplashScreen extends StatelessWidget {
                     },
                   ),
                 ),
-              ),
-
-              Expanded(
-                  child: Container(
-                    width: 375*fem,
-                    height: 35*fem,
-                    child: Image.asset(
-                      'assets/images/swipe-up-WXL.png',
-                      width: 375*fem,
-                      height: 35*fem,
-                    ),
-                  ),
               ),
             ],
           )),
