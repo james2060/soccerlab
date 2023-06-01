@@ -19,54 +19,54 @@ class OnboardingScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     double baseWidth = 375;
     double fem = MediaQuery.of(context).size.width / baseWidth;
-    double ffem = fem * 0.97;
+    double ffem = fem * 0.9;
 
     return Scaffold(
       backgroundColor: kPrimaryColor,
 
-      //body: SingleChildScrollView(
+
       body: SafeArea(
         child: Container(
-/*          decoration: BoxDecoration (
+          decoration: BoxDecoration (
             color: Color(0xffffffff),
-          ),*/
-          child: Column(
+          ),
 
+          child: Column(
             children: [
               Expanded(
                 child:Container(
-                  margin: EdgeInsets.fromLTRB(3*fem, 0*fem, 0*fem, 158.23*fem),
+  /*                margin: EdgeInsets.fromLTRB(3*fem, 0*fem, 0*fem, 158.23*fem),
                   width: 228*fem,
-                  height: 211.77*fem,
+                  height: 211.77*fem,*/
                   child: Image.asset(
                     'assets/images/club-logo-p8i.png',
-                    width: 228*fem,
-                    height: 211.77*fem,
+                   width: 228*fem,
+                   height: 211.77*fem,
                   ),
                 ),
               ),
               Expanded(
                 child:Container(
                 // textSeN (1:59)
-                margin: EdgeInsets.fromLTRB(20*fem, 0*fem, 19*fem, 20*fem),
-                width: double.infinity,
+/*                margin: EdgeInsets.fromLTRB(20*fem, 0*fem, 19*fem, 20*fem),
+                width: double.infinity,*/
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Container(
+                    Expanded(
                       // group561LUr (1:66)
-                      margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 0*fem, 40*fem),
+/*                      margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 0*fem, 40*fem),
                       padding: EdgeInsets.fromLTRB(70*fem, 0*fem, 70*fem, 0*fem),
                       width: double.infinity,
                       decoration: BoxDecoration (
                         borderRadius: BorderRadius.circular(50*fem),
-                      ),
+                      ),*/
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
-                          Container(
+                          Expanded(
                             // greenskickCX4 (1:73)
-                            margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 2*fem, 4*fem),
+                            //margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 2*fem, 4*fem),
                             child: Text(
                               'GREENSKICK',
                               textAlign: TextAlign.center,
@@ -79,9 +79,9 @@ class OnboardingScreen extends StatelessWidget {
                               ),
                             ),
                           ),
-                          Container(
+                          Expanded(
                             // welcomeback4JN (1:72)
-                            margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 2*fem, 45*fem),
+                            //margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 2*fem, 15*fem),
                             child: Text(
                               'Welcome Back',
                               textAlign: TextAlign.center,
@@ -94,12 +94,12 @@ class OnboardingScreen extends StatelessWidget {
                               ),
                             ),
                           ),
-                          Container(
+                          Expanded(
                             // vLa (1:71)
-                            margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 0*fem, 20*fem),
+    /*                        margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 0*fem, 20*fem),
                             constraints: BoxConstraints (
                               maxWidth: 196*fem,
-                            ),
+                            ),*/
                             child: Text(
                               '그린스킥은 축구동호회 전용 플랫폼으로\n한차원 높은 고품질의 클럽 관리를 지향합니다.\n지금 바로 가입하여 팀을 생성하고 관리해 보십시오',
                               textAlign: TextAlign.center,
@@ -113,13 +113,12 @@ class OnboardingScreen extends StatelessWidget {
                               ),
                             ),
                           ),
-                          Container(
-                            // dotsliderGYr (1:67)
-                            margin: EdgeInsets.fromLTRB(66*fem, 0*fem, 67*fem, 0*fem),
+                          Expanded(
+            /*                margin: EdgeInsets.fromLTRB(66*fem, 0*fem, 67*fem, 0*fem),
                             width: double.infinity,
                             decoration: BoxDecoration (
-                              borderRadius: BorderRadius.circular(50*fem),
-                            ),
+                              borderRadius: BorderRadius.circular(10*fem),
+                            ),*/
                             child: Row(
                               crossAxisAlignment: CrossAxisAlignment.center,
                               mainAxisAlignment: MainAxisAlignment.center,
@@ -165,9 +164,9 @@ class OnboardingScreen extends StatelessWidget {
                     ),
 
                     Container(
-                      margin: EdgeInsets.fromLTRB(8*fem, 0*fem, 9*fem, 0*fem),
+                      margin: EdgeInsets.fromLTRB(4*fem, 0*fem, 9*fem, 0*fem),
                       width: double.infinity,
-                      height: 60*fem,
+                      height: 30*fem,
                       child: Container(
                         margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 11*fem, 0*fem),
                         child: TextButton(
@@ -202,12 +201,17 @@ class OnboardingScreen extends StatelessWidget {
                       ),
 
                     ),
+                    SizedBox(
+                      height: 10*fem,
+                    ),
                   ],
                 ),
               ),),
+
               ],
           ),
-          ),
+
+        ),
         ),
       );
   }
