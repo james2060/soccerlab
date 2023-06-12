@@ -7,9 +7,9 @@ class BottomMenuItem {
 }
 
 List<BottomMenuItem> btmItems = [
-  BottomMenuItem(id: 0, label: "Home", icon: "icons/home.svg"),
-  BottomMenuItem(id: 1, label: "Fixtures", icon: "icons/star.svg"),
-  BottomMenuItem(id: 2, label: "Team", icon: "icons/square.svg"),
-  BottomMenuItem(id: 3, label: "Invite", icon: "icons/loupe.svg"),
-  BottomMenuItem(id: 4, label: "Profile", icon: "icons/user.svg"),
+  BottomMenuItem(id: 0, label: "Home", icon: "assets/icons/home.svg"),
+  BottomMenuItem(id: 1, label: "Fixtures", icon: "assets/icons/star.svg"),
+  BottomMenuItem(id: 2, label: "Team", icon: "assets/icons/square.svg"),
+  BottomMenuItem(id: 3, label: "Invite", icon: "assets/icons/loupe.svg"),
+  BottomMenuItem(id: 4, label: "Profile", icon: "assets/icons/user.svg"),
 ];
