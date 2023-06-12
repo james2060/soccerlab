@@ -20,7 +20,7 @@ class OnLoginScreen extends StatelessWidget{
           width: double.infinity,
         child: GestureDetector(
         onTap: () => FocusScope.of(context).unfocus(),
-    child: SingleChildScrollView(
+        child: SingleChildScrollView(
           child: Container(
             // signinXUS (1:194)
             width: double.infinity,
@@ -295,7 +295,7 @@ class OnLoginScreen extends StatelessWidget{
               ),
             ),
           ),
-    ),
+        ),
         ),
         ),
     );
