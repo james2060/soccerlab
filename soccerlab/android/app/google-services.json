@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "992359183996",
+    "project_id": "soccerlab-c155c",
+    "storage_bucket": "soccerlab-c155c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:992359183996:android:62bc8393073a10f657bbf9",
+        "android_client_info": {
+          "package_name": "com.example.soccerlab"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "992359183996-vdrp8be0smuokus00c0h8jg75t5bn8gs.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD9wWVxM65_sT91yQPPh02j_K7Nhyux2Xc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "992359183996-vdrp8be0smuokus00c0h8jg75t5bn8gs.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
