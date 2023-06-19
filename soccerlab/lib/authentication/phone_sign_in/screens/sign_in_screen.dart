@@ -1,9 +1,9 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:flutterfire_samples/firebase_options.dart';
-import 'package:flutterfire_samples/res/custom_colors.dart';
-import 'package:flutterfire_samples/authentication/phone_sign_in/widgets/sign_in_form.dart';
+import 'package:soccerlab/firebase_options.dart';
+import 'package:soccerlab/res/custom_colors.dart';
+import 'package:soccerlab/authentication/phone_sign_in/widgets/sign_in_form.dart';
 
 import 'user_info_screen.dart';
 

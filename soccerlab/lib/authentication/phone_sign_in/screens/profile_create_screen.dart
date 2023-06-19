@@ -1,8 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutterfire_samples/res/custom_colors.dart';
-import 'package:flutterfire_samples/common/widgets/app_bar_title.dart';
-import 'package:flutterfire_samples/common/widgets/custom_form_field.dart';
+import 'package:soccerlab/res/custom_colors.dart';
+import 'package:soccerlab/common/widgets/app_bar_title.dart';
+import 'package:soccerlab/common/widgets/custom_form_field.dart';
 
 import '../utils/validator.dart';
 import 'user_info_screen.dart';

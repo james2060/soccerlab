@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutterfire_samples/res/fire_assets.dart';
-import 'package:flutterfire_samples/authentication/google_sign_in/utils/authentication.dart';
+import 'package:soccerlab/res/fire_assets.dart';
+import 'package:soccerlab/authentication/google_sign_in/utils/authentication.dart';
 
 import '../screens/user_info_screen.dart';
 

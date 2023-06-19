@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutterfire_samples/res/custom_colors.dart';
+import 'package:soccerlab/res/custom_colors.dart';
 import '../../../common/widgets/custom_form_field.dart';
 import '../screens/otp_verify_screen.dart';
 import '../utils/validator.dart';
