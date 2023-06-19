@@ -33,18 +33,26 @@ dependencies:
   flutter:
     sdk: flutter
 
+  flutter_web_plugins:
+    sdk: flutter
+
 
   # The following adds the Cupertino Icons font to your application.
-  # Use with the CupertinoIcons class for iOS style icons.
+  # Use with the CupertinoIcons clas for iOS style icons.
   cupertino_icons: ^1.0.2
   google_fonts: ^4.0.3
   flutter_svg: ^0.21.0-nullsafety.0
   intl: ^0.17.0
   pull_to_refresh: ^1.6.3
 
-  firebase_core: ^1.10.6
-  firebase_auth: ^3.3.4
-  cloud_firestore: ^3.1.5
+  firebase_core: ^2.14.0
+  firebase_auth: ^4.6.3
+  google_sign_in: ^6.1.4
+  cloud_firestore: ^4.8.1
+  font_awesome_flutter: ^10.2.1
+  pin_code_fields: ^7.4.0
+  firebase_database: ^10.2.3
+  firebase_core_platform_interface: ^4.5.1
 
 
 dev_dependencies:
@@ -77,6 +85,20 @@ flutter:
   assets:
     - assets/images/
     - assets/icons/
+
+  fonts:
+    - family: OpenSans
+      fonts:
+        - asset: assets/fonts/OpenSans-Light.ttf
+          weight: 300
+        - asset: assets/fonts/OpenSans-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/OpenSans-SemiBold.ttf
+          weight: 500
+        - asset: assets/fonts/OpenSans-Bold.ttf
+          weight: 600
+        - asset: assets/fonts/OpenSans-ExtraBold.ttf
+          weight: 700
 
 
   # An image asset can refer to one or more resolution-specific "variants", see

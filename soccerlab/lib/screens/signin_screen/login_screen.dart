@@ -12,8 +12,11 @@ class OnLoginScreen extends StatelessWidget{
     double ffem = fem * 0.97;
     TextEditingController emailController = TextEditingController();
     TextEditingController pwdController = TextEditingController();
-    String emailText = '';
-    String pwdText = '';
+    var emailText = FocusNode();
+    var pwdText = FocusNode();
+    bool _isPasswordVisible = true;
+    bool _autoValidate = false;
+
     return Scaffold(
         backgroundColor: kPrimaryColor,
 
