@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutterfire_samples/res/custom_colors.dart';
-import 'package:flutterfire_samples/authentication/google_sign_in/utils/authentication.dart';
-import 'package:flutterfire_samples/authentication/google_sign_in/widgets/google_sign_in_button.dart';
-import 'package:flutterfire_samples/common/widgets/custom_back_button.dart';
+import 'package:soccerlab/res/custom_colors.dart';
+import 'package:soccerlab/authentication/google_sign_in/utils/authentication.dart';
+import 'package:soccerlab/authentication/google_sign_in/widgets/google_sign_in_button.dart';
+import 'package:soccerlab/common/widgets/custom_back_button.dart';
 
 class SignInScreen extends StatefulWidget {
   const SignInScreen({Key? key}) : super(key: key);
