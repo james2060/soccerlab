@@ -31,7 +31,6 @@ class OnboardingScreen extends StatelessWidget {
             color: Color(0xffffffff),
           ),*/
           child: Column(
-
             children: [
               Expanded(
                 child:Container(
