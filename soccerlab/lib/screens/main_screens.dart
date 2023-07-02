@@ -10,9 +10,16 @@ import '../screens/Fixtures_screen/fixtures_screen.dart';
 import '../screens/team_screen/team_screen.dart';
 import '../screens/invite_screen/invite_screen.dart';
 import '../screens/profile_screen/profile_screen.dart';
-
+import '../authentication/email_password/email_password.dart' as email;
+import 'package:firebase_auth/firebase_auth.dart';
 class MainScreens extends StatefulWidget {
   static String routeName = "/main_screens";
+
+  const MainScreens({Key? key, required User user})
+      : _user = user,
+        super(key: key);
+
+  final User _user;
 
   @override
   _MainScreensState createState() => _MainScreensState();
@@ -20,6 +27,19 @@ class MainScreens extends StatefulWidget {
 
 class _MainScreensState extends State<MainScreens> {
   int _selectedIndex = 0;
+  late bool _isEmailVerified;
+  late User _user;
+
+  bool _verificationEmailBeingSent = false;
+  bool _isSigningOut = false;
+
+  @override
+  void initState() {
+    _user = widget._user;
+    _isEmailVerified = _user.emailVerified;
+
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {

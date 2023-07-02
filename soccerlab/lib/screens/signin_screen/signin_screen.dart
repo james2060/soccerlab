@@ -86,7 +86,7 @@ class _SinginScreenState extends State<OnSinginScreen> {
 								),
 								ElevatedButton(
 									onPressed: () {
-										_callPageRoute(context, MainScreens());
+										//_callPageRoute(context, MainScreens());
 									},
 									child: Text('로그인'),
 								),

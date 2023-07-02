@@ -7,6 +7,7 @@ import '../main_screens.dart';
 import '../welcom_screen/welcome_screen.dart';
 import '../signin_screen/signin_screen.dart';
 import '../signin_screen/login_screen.dart';
+import '../../authentication/email_password/email_password.dart' as email;
 /*
  * SplashScreen -> OnboardingScreen -> SigninScreen
  * 로그인 또는 팀생성 페이지
@@ -171,7 +172,7 @@ class OnboardingScreen extends StatelessWidget {
                         margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 11*fem, 0*fem),
                         child: TextButton(
                           onPressed: () {
-                            _callPageRoute(context, OnLoginScreen());
+                            _callPageRoute(context, /*OnLoginScreen()*/email.SignInScreen());
                           },
                           style: TextButton.styleFrom (
                             padding: EdgeInsets.zero,

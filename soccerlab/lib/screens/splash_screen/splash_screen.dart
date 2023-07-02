@@ -7,7 +7,7 @@ import '../../utils.dart';
 import '../onboarding_screen/onboarding_screen.dart';
 
 import '../main_screens.dart';
-
+import '../../authentication/email_password/screens/sign_in_screen.dart' as email;
 
 
 class SplashScreen extends StatelessWidget {
@@ -65,9 +65,9 @@ class SplashScreen extends StatelessWidget {
                 child: Padding(
                   padding: EdgeInsets.all(24),
                   child: TextButton(
-                    child: Text("Continue"),
+                    child: Text("LOGIN"),
                     onPressed: () {
-                      _completeSplash(context, OnboardingScreen());
+                      _completeSplash(context, email.SignInScreen());
                     },
                   ),
                 ),

@@ -6,7 +6,7 @@ import 'package:soccerlab/res/custom_colors.dart';
 
 import '../widgets/sign_in_form.dart';
 import 'user_info_screen.dart';
-
+import '../../../screens/main_screens.dart';
 class SignInScreen extends StatefulWidget {
   const SignInScreen({Key? key}) : super(key: key);
 
@@ -69,20 +69,20 @@ class SignInScreenState extends State<SignInScreen> {
                           Flexible(
                             flex: 1,
                             child: Image.asset(
-                              'assets/firebase_logo.png',
+                              'assets/images/firebase_logo.png',
                               height: 160,
                             ),
                           ),
                           const SizedBox(height: 20),
                           const Text(
-                            'FlutterFire',
+                            'Greens',
                             style: TextStyle(
                               color: Palette.firebaseYellow,
                               fontSize: 40,
                             ),
                           ),
                           const Text(
-                            'Authentication',
+                            'Login',
                             style: TextStyle(
                               color: Palette.firebaseOrange,
                               fontSize: 40,

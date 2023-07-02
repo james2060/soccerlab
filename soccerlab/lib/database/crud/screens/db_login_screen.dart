@@ -51,7 +51,7 @@ class _DbLoginScreenState extends State<DbLoginScreen> {
                           Flexible(
                             flex: 1,
                             child: Image.asset(
-                              'assets/firebase_logo.png',
+                              'assets/images/firebase_logo.png',
                               height: 160,
                             ),
                           ),

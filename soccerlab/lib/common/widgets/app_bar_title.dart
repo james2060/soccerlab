@@ -17,7 +17,7 @@ class AppBarTitle extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       children: [
         Image.asset(
-          'assets/firebase_logo.png',
+          'assets/images/firebase_logo.png',
           height: 20,
         ),
         const SizedBox(width: 8),

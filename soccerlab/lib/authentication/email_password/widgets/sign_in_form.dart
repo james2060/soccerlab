@@ -1,12 +1,14 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:soccerlab/res/custom_colors.dart';
+import 'package:soccerlab/screens/main_screens.dart';
 
 import '../../../common/widgets/custom_form_field.dart';
 import '../screens/register_screen.dart';
 import '../screens/user_info_screen.dart';
 import '../utils/authentication.dart';
 import '../utils/validator.dart';
+import '../../../screens/main_screens.dart';
 
 class SignInForm extends StatefulWidget {
   final FocusNode emailFocusNode;
@@ -111,11 +113,11 @@ class SignInFormState extends State<SignInForm> {
                           );
 
                           if (user != null) {
-                            Navigator.of(context).pop();
-                            Navigator.of(context).pop();
+                            //Navigator.of(context).pop();
+                            //Navigator.of(context).pop();
                             Navigator.of(context).push(
                               MaterialPageRoute(
-                                builder: (context) => UserInfoScreen(
+                                builder: (context) => MainScreens(
                                   user: user,
                                 ),
                               ),
