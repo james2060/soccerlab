@@ -276,6 +276,7 @@ class UserInfoScreenState extends State<UserInfoScreen> {
           ),
         ),
       ),
+
     );
   }
 }

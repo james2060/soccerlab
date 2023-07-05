@@ -98,6 +98,7 @@ class SignInScreenState extends State<SignInScreen> {
                           return const Text('Error initializing Firebase');
                         } else if (snapshot.connectionState ==
                             ConnectionState.done) {
+                          debugPrint('once complete, sign out 과정을 통해야 로그인 창으로 감');
                           return SignInForm(
                             emailFocusNode: _emailFocusNode,
                             passwordFocusNode: _passwordFocusNode,
