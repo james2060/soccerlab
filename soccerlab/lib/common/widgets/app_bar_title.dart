@@ -17,12 +17,12 @@ class AppBarTitle extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       children: [
         Image.asset(
-          'assets/images/firebase_logo.png',
+          'assets/images/club-logo.png',
           height: 20,
         ),
         const SizedBox(width: 8),
         Text(
-          'FlutterFire',
+          'Greens',
           style: TextStyle(
             color: Palette.firebaseYellow,
             fontSize: 18,

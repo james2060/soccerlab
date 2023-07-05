@@ -69,7 +69,7 @@ class SignInScreenState extends State<SignInScreen> {
                           Flexible(
                             flex: 1,
                             child: Image.asset(
-                              'assets/images/firebase_logo.png',
+                              'assets/images/logo.png',
                               height: 160,
                             ),
                           ),
