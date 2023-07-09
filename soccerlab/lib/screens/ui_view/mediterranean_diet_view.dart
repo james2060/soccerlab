@@ -356,7 +356,7 @@ class MediterranesnDietView extends StatelessWidget {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: <Widget>[
                                 Text(
-                                  'Carbs',
+                                  'Win',
                                   textAlign: TextAlign.center,
                                   style: TextStyle(
                                     fontFamily: apptheme.fontName,
@@ -399,7 +399,7 @@ class MediterranesnDietView extends StatelessWidget {
                                 Padding(
                                   padding: const EdgeInsets.only(top: 6),
                                   child: Text(
-                                    '12g left',
+                                    '11 승',
                                     textAlign: TextAlign.center,
                                     style: TextStyle(
                                       fontFamily: apptheme.fontName,
@@ -423,7 +423,7 @@ class MediterranesnDietView extends StatelessWidget {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: <Widget>[
                                     Text(
-                                      'Protein',
+                                      'Draw',
                                       textAlign: TextAlign.center,
                                       style: TextStyle(
                                         fontFamily: apptheme.fontName,
@@ -468,7 +468,7 @@ class MediterranesnDietView extends StatelessWidget {
                                     Padding(
                                       padding: const EdgeInsets.only(top: 6),
                                       child: Text(
-                                        '30g left',
+                                        '5 무',
                                         textAlign: TextAlign.center,
                                         style: TextStyle(
                                           fontFamily: apptheme.fontName,
@@ -494,7 +494,7 @@ class MediterranesnDietView extends StatelessWidget {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: <Widget>[
                                     Text(
-                                      'Fat',
+                                      'Lose',
                                       style: TextStyle(
                                         fontFamily: apptheme.fontName,
                                         fontWeight: FontWeight.w500,
@@ -539,7 +539,7 @@ class MediterranesnDietView extends StatelessWidget {
                                     Padding(
                                       padding: const EdgeInsets.only(top: 6),
                                       child: Text(
-                                        '10g left',
+                                        '5 패',
                                         textAlign: TextAlign.center,
                                         style: TextStyle(
                                           fontFamily: apptheme.fontName,

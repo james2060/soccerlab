@@ -7,6 +7,7 @@ import '../screens/sign_in_screen.dart';
 import '../screens/user_info_screen.dart';
 import '../utils/authentication.dart';
 import '../utils/validator.dart';
+import '../../../screens/app_homescreen.dart';
 
 class RegisterForm extends StatefulWidget {
   final FocusNode nameFocusNode;
@@ -149,9 +150,10 @@ class RegisterFormState extends State<RegisterForm> {
                           );
 
                           if (user != null) {
+                            debugPrint('Step 1');
                             Navigator.of(context).pushReplacement(
                               MaterialPageRoute(
-                                builder: (context) => UserInfoScreen(
+                                builder: (context) => AppHomeScreen(//UserInfoScreen(
                                   user: user,
                                 ),
                               ),

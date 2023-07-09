@@ -3,10 +3,11 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:soccerlab/firebase_options.dart';
 import 'package:soccerlab/res/custom_colors.dart';
-
+import 'package:soccerlab/screens/app_homescreen.dart';
 import '../widgets/sign_in_form.dart';
 import 'user_info_screen.dart';
 import '../../../screens/main_screens.dart';
+
 class SignInScreen extends StatefulWidget {
   const SignInScreen({Key? key}) : super(key: key);
 
@@ -29,7 +30,7 @@ class SignInScreenState extends State<SignInScreen> {
       if (!mounted) return firebaseApp;
       Navigator.of(context).pushReplacement(
         MaterialPageRoute(
-          builder: (context) => UserInfoScreen(
+          builder: (context) => AppHomeScreen(//UserInfoScreen(
             user: user,
           ),
         ),

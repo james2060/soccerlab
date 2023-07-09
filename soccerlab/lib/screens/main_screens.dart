@@ -1,17 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:soccerlab/screens/welcom_screen/welcome_screen.dart';
 import '../models/BottomMenuItem.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import '../constants.dart';
-import '../screens/splash_screen/splash_screen.dart';
-import '../screens/onboarding_screen/onboarding_screen.dart';
 import '../screens/home_screen/home_screen.dart';
 import '../screens/Fixtures_screen/fixtures_screen.dart';
 import '../screens/team_screen/team_screen.dart';
 import '../screens/invite_screen/invite_screen.dart';
 import '../screens/profile_screen/profile_screen.dart';
-import '../authentication/email_password/email_password.dart' as email;
 import 'package:firebase_auth/firebase_auth.dart';
+
 class MainScreens extends StatefulWidget {
   static String routeName = "/main_screens";
 
@@ -33,6 +30,8 @@ class _MainScreensState extends State<MainScreens> {
   bool _verificationEmailBeingSent = false;
   bool _isSigningOut = false;
 
+
+
   @override
   void initState() {
     _user = widget._user;
@@ -49,6 +48,7 @@ class _MainScreensState extends State<MainScreens> {
         children: [ OnHomeScreen(),OnFixturesScreen(),OnTeamScreen(),OnInviteScreen(),OnProfileScreen(),
         ],
       ),
+
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
         selectedItemColor: Colors.purple,
@@ -65,6 +65,7 @@ class _MainScreensState extends State<MainScreens> {
           ),
         ),
       ),
+
     );
   }
 

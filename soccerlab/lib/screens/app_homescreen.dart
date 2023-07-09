@@ -5,6 +5,8 @@ import 'package:soccerlab/screens/bottom_navigation_view/bottom_bar_view.dart';
 import 'package:soccerlab/screens/mydiaryscreen/my_diary_screen.dart';
 import 'package:soccerlab/screens/training_screen/training_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
+import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 class AppHomeScreen extends StatefulWidget {
 
   const AppHomeScreen({Key? key, required User user})
@@ -26,6 +28,13 @@ class _AppHomeScreenState extends State<AppHomeScreen>
     color: apptheme.background,
   );
 
+  var messageString = "";
+
+  void getMyDeviceToken() async {
+    final token = await FirebaseMessaging.instance.getToken();
+    print("내 디바이스 토큰: $token");
+  }
+
   @override
   void initState() {
     tabIconsList.forEach((TabIconData tab) {
@@ -35,7 +44,31 @@ class _AppHomeScreenState extends State<AppHomeScreen>
 
     animationController = AnimationController(
         duration: const Duration(milliseconds: 600), vsync: this);
-    tabBody = MyDiaryScreen(animationController: animationController);
+    tabBody = MyDiaryScreen(animationController: animationController, user: widget._user);
+
+    getMyDeviceToken();
+    FirebaseMessaging.onMessage.listen((RemoteMessage message) async {
+      RemoteNotification? notification = message.notification;
+
+      if (notification != null) {
+        FlutterLocalNotificationsPlugin().show(
+          notification.hashCode,
+          notification.title,
+          notification.body,
+          const NotificationDetails(
+            android: AndroidNotificationDetails(
+              'high_importance_channel',
+              'high_importance_notification',
+              importance: Importance.max,
+            ),
+          ),
+        );
+        setState(() {
+          messageString = message.notification!.body!;
+          print("Foreground 메시지 수신: $messageString");
+        });
+      }
+    });
     super.initState();
   }
 
@@ -60,6 +93,7 @@ class _AppHomeScreenState extends State<AppHomeScreen>
               return Stack(
                 children: <Widget>[
                   tabBody,
+                  Text("메시지 내용: $messageString"),
                   bottomBar(),
                 ],
               );
@@ -92,7 +126,7 @@ class _AppHomeScreenState extends State<AppHomeScreen>
                 }
                 setState(() {
                   tabBody =
-                      MyDiaryScreen(animationController: animationController);
+                      MyDiaryScreen(animationController: animationController, user: widget._user);
                 });
               });
             } else if (index == 1 || index == 3) {

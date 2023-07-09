@@ -6,10 +6,16 @@ import 'package:soccerlab/apptheme.dart';
 import 'package:soccerlab/screens/mydiaryscreen/meals_list_view.dart';
 import 'package:soccerlab/screens/mydiaryscreen/water_view.dart';
 import 'package:flutter/material.dart';
-
+import 'package:firebase_auth/firebase_auth.dart';
 
 class MyDiaryScreen extends StatefulWidget {
-  const MyDiaryScreen({Key? key, this.animationController}) : super(key: key);
+
+  const MyDiaryScreen({Key? key, this.animationController, required User user})
+      : _user = user,
+        super(key: key);
+
+  final User _user;
+  //const MyDiaryScreen({Key? key, this.animationController}) : super(key: key);
 
   final AnimationController? animationController;
   @override
@@ -64,7 +70,7 @@ class _MyDiaryScreenState extends State<MyDiaryScreen>
 
     listViews.add(
       TitleView(
-        titleTxt: 'coming match',
+        titleTxt: widget._user.displayName!,
         subTxt: 'Details',
         animation: Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
             parent: widget.animationController!,

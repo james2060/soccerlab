@@ -103,6 +103,7 @@ class SignInFormState extends State<SignInForm> {
 
                         setState(() {
                           _isSigningIn = true;
+                          debugPrint('_isSigninIn is true');
                         });
 
                         if (_signInFormKey.currentState!.validate()) {
