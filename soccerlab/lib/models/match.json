@@ -1,0 +1,32 @@
+{
+  "name": "Matches",
+  "matches": [
+    {
+      "round": "Matchday 1",
+      "date":  "2023-07-31",
+      "starttime": "07:00",
+      "endtime": "09:00",
+      "location":"가산디지털운동장",
+      "team1": "GridFC",
+      "team2": "스트레인져스",
+      "matchresult": 0,
+      "numofparticipants": 13,
+      "team1score": 1,
+      "team2score": 2
+    },
+    {
+      "round": "Matchday 1",
+      "date":  "2023-07-31",
+      "starttime": "07:00",
+      "endtime": "09:00",
+      "location":"가산디지털운동장",
+      "team1": "GridFC",
+      "team2": "이랜드",
+      "matchresult": 0,
+      "numofparticipants": 13,
+      "team1score": 1,
+      "team2score": 2
+    }
+
+  ]
+}

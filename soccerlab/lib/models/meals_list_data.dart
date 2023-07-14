@@ -14,7 +14,6 @@ class MealsListData {
   String endColor;
   List<String>? meals;
   int kacl;
-
   static List<MealsListData> tabIconsList = <MealsListData>[
     MealsListData(
       imagePath: 'assets/bottom/breakfast.png',
