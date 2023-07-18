@@ -14,7 +14,8 @@ Future<void> main() async{
     options: DefaultFirebaseOptions.currentPlatform
   );
   initializeNotification();
-  initializeFireStore();
+  //insertSampleDdataToFireStore();
+  getSampledataFromFireStore();
   runApp(Soccerlab());
 }
 
@@ -55,9 +56,20 @@ void initializeNotification() async {
     sound: true,
   );
 }
-void initializeFireStore() async {
+//FireStore DB로 부터 Collection에 특정 Document를 Read 하여 출력
+void getSampledataFromFireStore() async{
+  print('FireStore Data 가져오기 시작');
   FirebaseFirestore _firestore = FirebaseFirestore.instance;
-  await _firestore.collection("matchinfo").doc().set(
+  DocumentSnapshot<Map<String, dynamic>> _data = await _firestore.collection("matchinfo").doc("20230718").get();
+
+  print(_data.data());
+
+  print('firestore Data 가져오기 완료');
+}
+//FireStore DB에 Collection과 Docuemnt를 생성(없으면 생성됨)하여 데이터를 저장
+void insertSampleDdataToFireStore() async {
+  FirebaseFirestore _firestore = FirebaseFirestore.instance;
+  await _firestore.collection("matchinfo").doc("20230718").set(
       {
         "name": "Matches",
         "matches": [
