@@ -6,12 +6,15 @@ import 'theme.dart';
 import 'firebase_options.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+
 Future<void> main() async{
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform
   );
   initializeNotification();
+  initializeFireStore();
   runApp(Soccerlab());
 }
 
@@ -50,5 +53,15 @@ void initializeNotification() async {
     alert: true,
     badge: true,
     sound: true,
+  );
+}
+void initializeFireStore() async {
+  FirebaseFirestore _firestore = FirebaseFirestore.instance;
+  await _firestore.collection("cars").doc().set(
+    {
+      "brand": "Genesis",
+      "name": "G80",
+      "price": 7000,
+    },
   );
 }
