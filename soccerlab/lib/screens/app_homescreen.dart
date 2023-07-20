@@ -7,6 +7,8 @@ import 'package:soccerlab/screens/training_screen/training_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+
 class AppHomeScreen extends StatefulWidget {
 
   const AppHomeScreen({Key? key, required User user})
@@ -76,6 +78,16 @@ class _AppHomeScreenState extends State<AppHomeScreen>
   void dispose() {
     animationController?.dispose();
     super.dispose();
+  }
+  //FireStore DB로 부터 Collection에 특정 Document를 Read 하여 출력
+  void getSampledataFromFireStore() async{
+    print('FireStore Data 가져오기 시작');
+    FirebaseFirestore _firestore = FirebaseFirestore.instance;
+    DocumentSnapshot<Map<String, dynamic>> _data = await _firestore.collection("matchinfo").doc("20230718").get();
+
+    print(_data.data());
+
+    print('firestore Data 가져오기 완료');
   }
 
   @override

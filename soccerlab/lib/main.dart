@@ -15,7 +15,7 @@ Future<void> main() async{
   );
   initializeNotification();
   //insertSampleDdataToFireStore();
-  getSampledataFromFireStore();
+  //getSampledataFromFireStore();
   runApp(Soccerlab());
 }
 
