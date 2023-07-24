@@ -3,26 +3,26 @@ import 'package:soccerlab/screens/ui_view/glass_view.dart';
 import 'package:soccerlab/screens/ui_view/mediterranean_diet_view.dart';
 import 'package:soccerlab/screens/ui_view/title_view.dart';
 import 'package:soccerlab/apptheme.dart';
-import 'package:soccerlab/screens/mydiaryscreen/meals_list_view.dart';
+import 'package:soccerlab/screens/mydiaryscreen//meals_list_view.dart';
 import 'package:soccerlab/screens/mydiaryscreen/water_view.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:soccerlab/models/matchinfo.dart';
+class MatchScreen extends StatefulWidget {
 
-class MyDiaryScreen extends StatefulWidget {
-
-  const MyDiaryScreen({Key? key, this.animationController, required User user})
+  const MatchScreen({Key? key, this.animationController, required User user})
       : _user = user,
         super(key: key);
 
   final User _user;
-  //const MyDiaryScreen({Key? key, this.animationController}) : super(key: key);
+  //const MatchScreen({Key? key, this.animationController}) : super(key: key);
 
   final AnimationController? animationController;
   @override
-  _MyDiaryScreenState createState() => _MyDiaryScreenState();
+  _MatchScreenState createState() => _MatchScreenState();
 }
 
-class _MyDiaryScreenState extends State<MyDiaryScreen>
+class _MatchScreenState extends State<MatchScreen>
     with TickerProviderStateMixin {
   Animation<double>? topBarAnimation;
 
@@ -75,7 +75,7 @@ class _MyDiaryScreenState extends State<MyDiaryScreen>
         animation: Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
             parent: widget.animationController!,
             curve:
-                Interval((1 / count) * 0, 1.0, curve: Curves.fastOutSlowIn))),
+            Interval((1 / count) * 0, 1.0, curve: Curves.fastOutSlowIn))),
         animationController: widget.animationController!,
       ),
     );
@@ -84,18 +84,18 @@ class _MyDiaryScreenState extends State<MyDiaryScreen>
         animation: Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
             parent: widget.animationController!,
             curve:
-                Interval((1 / count) * 1, 1.0, curve: Curves.fastOutSlowIn))),
+            Interval((1 / count) * 1, 1.0, curve: Curves.fastOutSlowIn))),
         animationController: widget.animationController!,
       ),
     );
     listViews.add(
       TitleView(
         titleTxt: 'Next Matches',
-        subTxt: 'Customize',
+        subTxt: 'Details',
         animation: Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
             parent: widget.animationController!,
             curve:
-                Interval((1 / count) * 2, 1.0, curve: Curves.fastOutSlowIn))),
+            Interval((1 / count) * 2, 1.0, curve: Curves.fastOutSlowIn))),
         animationController: widget.animationController!,
       ),
     );
@@ -118,7 +118,7 @@ class _MyDiaryScreenState extends State<MyDiaryScreen>
         animation: Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
             parent: widget.animationController!,
             curve:
-                Interval((1 / count) * 4, 1.0, curve: Curves.fastOutSlowIn))),
+            Interval((1 / count) * 4, 1.0, curve: Curves.fastOutSlowIn))),
         animationController: widget.animationController!,
       ),
     );
@@ -128,7 +128,7 @@ class _MyDiaryScreenState extends State<MyDiaryScreen>
         animation: Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
             parent: widget.animationController!,
             curve:
-                Interval((1 / count) * 5, 1.0, curve: Curves.fastOutSlowIn))),
+            Interval((1 / count) * 5, 1.0, curve: Curves.fastOutSlowIn))),
         animationController: widget.animationController!,
       ),
     );
@@ -139,7 +139,7 @@ class _MyDiaryScreenState extends State<MyDiaryScreen>
         animation: Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
             parent: widget.animationController!,
             curve:
-                Interval((1 / count) * 6, 1.0, curve: Curves.fastOutSlowIn))),
+            Interval((1 / count) * 6, 1.0, curve: Curves.fastOutSlowIn))),
         animationController: widget.animationController!,
       ),
     );
@@ -281,7 +281,7 @@ class _MyDiaryScreenState extends State<MyDiaryScreen>
                                 onTap: () {},
                                 child: Center(
                                   child: Icon(
-                                    Icons.alarm,
+                                    Icons.keyboard_arrow_left,
                                     color: apptheme.grey,
                                   ),
                                 ),
@@ -297,13 +297,13 @@ class _MyDiaryScreenState extends State<MyDiaryScreen>
                                   Padding(
                                     padding: const EdgeInsets.only(right: 8),
                                     child: Icon(
-                                      Icons.circle_notifications_sharp,
+                                      Icons.calendar_today,
                                       color: apptheme.grey,
                                       size: 18,
                                     ),
                                   ),
                                   Text(
-                                    widget._user.uid,
+                                    '15 May',
                                     textAlign: TextAlign.left,
                                     style: TextStyle(
                                       fontFamily: apptheme.fontName,
