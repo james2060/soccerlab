@@ -7,7 +7,8 @@ import 'package:soccerlab/screens/mydiaryscreen/meals_list_view.dart';
 import 'package:soccerlab/screens/mydiaryscreen/water_view.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-
+import 'package:soccerlab/authentication/email_password/screens/sign_in_screen.dart' as sis;
+import 'package:cloud_firestore/cloud_firestore.dart';
 class MyDiaryScreen extends StatefulWidget {
 
   const MyDiaryScreen({Key? key, this.animationController, required User user})
@@ -32,6 +33,25 @@ class _MyDiaryScreenState extends State<MyDiaryScreen>
   final ScrollController scrollController = ScrollController();
   double topBarOpacity = 0.0;
 
+  Route _routeToSignInScreen() {
+    return PageRouteBuilder(
+      pageBuilder: (context, animation, secondaryAnimation) =>
+      const sis.SignInScreen(),
+      transitionsBuilder: (context, animation, secondaryAnimation, child) {
+        var begin = const Offset(-1.0, 0.0);
+        var end = Offset.zero;
+        var curve = Curves.ease;
+
+        var tween =
+        Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+
+        return SlideTransition(
+          position: animation.drive(tween),
+          child: child,
+        );
+      },
+    );
+  }
   @override
   void initState() {
     topBarAnimation = Tween<double>(begin: 0.0, end: 1.0).animate(
@@ -281,7 +301,7 @@ class _MyDiaryScreenState extends State<MyDiaryScreen>
                                 onTap: () {},
                                 child: Center(
                                   child: Icon(
-                                    Icons.alarm,
+                                    Icons.notifications,
                                     color: apptheme.grey,
                                   ),
                                 ),
@@ -294,28 +314,29 @@ class _MyDiaryScreenState extends State<MyDiaryScreen>
                               ),
                               child: Row(
                                 children: <Widget>[
-                                  Padding(
-                                    padding: const EdgeInsets.only(right: 8),
-                                    child: Icon(
-                                      Icons.circle_notifications_sharp,
-                                      color: apptheme.grey,
-                                      size: 18,
-                                    ),
-                                  ),
-                                  Text(
-                                    widget._user.uid,
-                                    textAlign: TextAlign.left,
-                                    style: TextStyle(
-                                      fontFamily: apptheme.fontName,
-                                      fontWeight: FontWeight.normal,
-                                      fontSize: 18,
-                                      letterSpacing: -0.2,
-                                      color: apptheme.darkerText,
-                                    ),
-                                  ),
+                                  // Padding(
+                                  //   padding: const EdgeInsets.only(right: 8),
+                                  //   child: Icon(
+                                  //     Icons.calendar_today,
+                                  //     color: apptheme.grey,
+                                  //     size: 18,
+                                  //   ),
+                                  // ),
+                                  // Text(
+                                  //   '강기수',
+                                  //   textAlign: TextAlign.left,
+                                  //   style: TextStyle(
+                                  //     fontFamily: apptheme.fontName,
+                                  //     fontWeight: FontWeight.normal,
+                                  //     fontSize: 18,
+                                  //     letterSpacing: -0.2,
+                                  //     color: apptheme.darkerText,
+                                  //   ),
+                                  // ),
                                 ],
                               ),
                             ),
+                            //로그아웃 버튼 클릭 시 SignInScreen 페이지로 이동
                             SizedBox(
                               height: 38,
                               width: 38,
@@ -323,10 +344,16 @@ class _MyDiaryScreenState extends State<MyDiaryScreen>
                                 highlightColor: Colors.transparent,
                                 borderRadius: const BorderRadius.all(
                                     Radius.circular(32.0)),
-                                onTap: () {},
+                                onTap: () async {
+                                  await FirebaseAuth.instance.signOut();
+
+                                  if (!mounted) return;
+                                  Navigator.of(context)
+                                      .pushReplacement(_routeToSignInScreen());
+                                },
                                 child: Center(
                                   child: Icon(
-                                    Icons.keyboard_arrow_right,
+                                    Icons.logout,
                                     color: apptheme.grey,
                                   ),
                                 ),
