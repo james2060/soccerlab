@@ -8,7 +8,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-
+import 'package:soccerlab/database/globaldata.dart';
 class AppHomeScreen extends StatefulWidget {
 
   const AppHomeScreen({Key? key, required User user})
@@ -16,6 +16,7 @@ class AppHomeScreen extends StatefulWidget {
         super(key: key);
 
   final User _user;
+
   @override
   _AppHomeScreenState createState() => _AppHomeScreenState();
 }
@@ -67,6 +68,8 @@ class _AppHomeScreenState extends State<AppHomeScreen>
         );
         setState(() {
           messageString = message.notification!.body!;
+
+          gd.addNotiCount();
           print("Foreground 메시지 수신: $messageString");
         });
       }

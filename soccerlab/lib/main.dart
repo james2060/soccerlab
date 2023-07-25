@@ -14,6 +14,7 @@ Future<void> main() async{
     options: DefaultFirebaseOptions.currentPlatform
   );
   initializeNotification();
+
   //insertSampleDdataToFireStore();
   //getSampledataFromFireStore();
   runApp(Soccerlab());

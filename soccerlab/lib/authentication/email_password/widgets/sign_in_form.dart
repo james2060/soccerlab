@@ -9,7 +9,7 @@ import '../screens/register_screen.dart';
 import '../screens/user_info_screen.dart';
 import '../utils/authentication.dart';
 import '../utils/validator.dart';
-
+import 'package:soccerlab/database/globaldata.dart';
 
 class SignInForm extends StatefulWidget {
   final FocusNode emailFocusNode;
@@ -117,6 +117,8 @@ class SignInFormState extends State<SignInForm> {
                           if (user != null) {
                             //Navigator.of(context).pop();
                             //Navigator.of(context).pop();
+                            GlobalData gd = GlobalData();
+                            gd.setUser(user);
                             Navigator.of(context).push(
                               MaterialPageRoute(
                                 builder: (context) => AppHomeScreen(//MainScreens(

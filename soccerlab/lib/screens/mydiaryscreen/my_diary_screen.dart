@@ -1,3 +1,4 @@
+import 'package:soccerlab/screens/app_homescreen.dart';
 import 'package:soccerlab/screens/ui_view/body_measurement.dart';
 import 'package:soccerlab/screens/ui_view/glass_view.dart';
 import 'package:soccerlab/screens/ui_view/mediterranean_diet_view.dart';
@@ -9,6 +10,9 @@ import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:soccerlab/authentication/email_password/screens/sign_in_screen.dart' as sis;
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:soccerlab/database/globaldata.dart';
+import 'package:badges/badges.dart' as badges;
+import 'package:soccerlab/database/globaldata.dart';
 class MyDiaryScreen extends StatefulWidget {
 
   const MyDiaryScreen({Key? key, this.animationController, required User user})
@@ -28,6 +32,9 @@ class _MyDiaryScreenState extends State<MyDiaryScreen>
   Animation<double>? topBarAnimation;
 
   String club_name = 'Greens';
+
+  String s_noticount="";
+
 
   List<Widget> listViews = <Widget>[];
   final ScrollController scrollController = ScrollController();
@@ -300,9 +307,22 @@ class _MyDiaryScreenState extends State<MyDiaryScreen>
                                     Radius.circular(32.0)),
                                 onTap: () {},
                                 child: Center(
-                                  child: Icon(
-                                    Icons.notifications,
-                                    color: apptheme.grey,
+                                  child: badges.Badge(
+                                    position: badges.BadgePosition.topEnd(top: 0, end: 3),
+                                    badgeAnimation: badges.BadgeAnimation.slide(
+                                    ),
+                                    badgeStyle: badges.BadgeStyle(
+                                      badgeColor: Colors.redAccent,
+                                    ),
+                                    badgeContent: Text(
+                                      gd.getNotiCountString(),
+                                      style: TextStyle(color: Colors.white),
+                                    ),
+                                    child: IconButton(icon: Icon(Icons.notifications),
+                                        onPressed: () {
+                                          s_noticount = gd.getNotiCountString();
+                                          print("noti count: $s_noticount");
+                                        }),
                                   ),
                                 ),
                               ),
@@ -314,25 +334,6 @@ class _MyDiaryScreenState extends State<MyDiaryScreen>
                               ),
                               child: Row(
                                 children: <Widget>[
-                                  // Padding(
-                                  //   padding: const EdgeInsets.only(right: 8),
-                                  //   child: Icon(
-                                  //     Icons.calendar_today,
-                                  //     color: apptheme.grey,
-                                  //     size: 18,
-                                  //   ),
-                                  // ),
-                                  // Text(
-                                  //   '강기수',
-                                  //   textAlign: TextAlign.left,
-                                  //   style: TextStyle(
-                                  //     fontFamily: apptheme.fontName,
-                                  //     fontWeight: FontWeight.normal,
-                                  //     fontSize: 18,
-                                  //     letterSpacing: -0.2,
-                                  //     color: apptheme.darkerText,
-                                  //   ),
-                                  // ),
                                 ],
                               ),
                             ),
