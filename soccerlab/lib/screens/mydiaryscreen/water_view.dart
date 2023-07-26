@@ -69,7 +69,7 @@ class _WaterViewState extends State<WaterView> with TickerProviderStateMixin {
                                       padding: const EdgeInsets.only(
                                           left: 4, bottom: 3),
                                       child: Text(
-                                        '2100',
+                                        '승률 33',
                                         textAlign: TextAlign.center,
                                         style: TextStyle(
                                           fontFamily: apptheme.fontName,
@@ -83,7 +83,7 @@ class _WaterViewState extends State<WaterView> with TickerProviderStateMixin {
                                       padding: const EdgeInsets.only(
                                           left: 8, bottom: 8),
                                       child: Text(
-                                        'ml',
+                                        '%',
                                         textAlign: TextAlign.center,
                                         style: TextStyle(
                                           fontFamily: apptheme.fontName,
@@ -100,7 +100,7 @@ class _WaterViewState extends State<WaterView> with TickerProviderStateMixin {
                                   padding: const EdgeInsets.only(
                                       left: 4, top: 2, bottom: 14),
                                   child: Text(
-                                    'of daily goal 3.5L',
+                                    'Total 100전 7승 3무 90패',
                                     textAlign: TextAlign.center,
                                     style: TextStyle(
                                       fontFamily: apptheme.fontName,
@@ -149,7 +149,7 @@ class _WaterViewState extends State<WaterView> with TickerProviderStateMixin {
                                         padding:
                                             const EdgeInsets.only(left: 4.0),
                                         child: Text(
-                                          'Last drink 8:26 AM',
+                                          '마지막 승 May 4 2022',
                                           textAlign: TextAlign.center,
                                           style: TextStyle(
                                             fontFamily:
@@ -180,7 +180,7 @@ class _WaterViewState extends State<WaterView> with TickerProviderStateMixin {
                                         ),
                                         Flexible(
                                           child: Text(
-                                            'Your bottle is empty, refill it!.',
+                                            '노력을 요함!',
                                             textAlign: TextAlign.start,
                                             style: TextStyle(
                                               fontFamily:
@@ -276,7 +276,7 @@ class _WaterViewState extends State<WaterView> with TickerProviderStateMixin {
                             ],
                           ),
                           child: WaveView(
-                            percentageValue: 60.0,
+                            percentageValue: 33.0,
                           ),
                         ),
                       )
