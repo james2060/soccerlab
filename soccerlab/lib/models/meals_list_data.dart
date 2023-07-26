@@ -1,3 +1,5 @@
+
+//Last Matches View에 표시될 데이터셋
 class MealsListData {
   MealsListData({
     this.imagePath = '',
@@ -22,7 +24,7 @@ class MealsListData {
       titleTxt: '오라클FC',
       kacl: 525,
       matchResult: '패',
-      meals: <String>['7/4,', '7-9 AM,', '2:1,'],
+      meals: <String>['7/4 ', '7-9 AM ', '2:1 '],
       startColor: '#FA7D82',
       endColor: '#FFB295',
     ),
@@ -31,7 +33,7 @@ class MealsListData {
       titleTxt: '스트레인져스',
       kacl: 602,
       matchResult: '패',
-      meals: <String>['7/1,', '7-9 AM,', '2:1,'],
+      meals: <String>['7/1 ', '7-9 AM ', '2:1 '],
       startColor: '#738AE6',
       endColor: '#5C5EDD',
     ),
@@ -40,7 +42,7 @@ class MealsListData {
       titleTxt: 'FC일레븐',
       kacl: 0,
       matchResult: '패',
-      meals: <String>['6/28,', '7-9 AM,', '1:1,'],
+      meals: <String>['6/28 ', '7-9 AM ', '1:1 '],
       startColor: '#FE95B6',
       endColor: '#FF5287',
     ),
@@ -49,7 +51,7 @@ class MealsListData {
       titleTxt: '스트레인져스',
       kacl: 0,
       matchResult: '승',
-      meals: <String>['6/20,', '7-9 AM,', '2:1,'],
+      meals: <String>['6/20 ', '7-9 AM ', '2:1 '],
       startColor: '#6F72CA',
       endColor: '#1E1466',
     ),

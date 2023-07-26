@@ -108,7 +108,7 @@ class _AppHomeScreenState extends State<AppHomeScreen>
               return Stack(
                 children: <Widget>[
                   tabBody,
-                  Text("메시지 내용: $messageString"),
+                  //Text("메시지 내용: $messageString"),
                   bottomBar(),
                 ],
               );

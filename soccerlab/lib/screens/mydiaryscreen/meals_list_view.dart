@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 
 import '../../main.dart';
 
+//Last Matches View
 class MealsListView extends StatefulWidget {
   const MealsListView(
       {Key? key, this.mainScreenAnimationController, this.mainScreenAnimation})
@@ -148,7 +149,7 @@ class MealsView extends StatelessWidget {
                               style: TextStyle(
                                 fontFamily: apptheme.fontName,
                                 fontWeight: FontWeight.bold,
-                                fontSize: 14,
+                                fontSize: 12,
                                 letterSpacing: 0.2,
                                 color: apptheme.white,
                               ),
@@ -166,7 +167,7 @@ class MealsView extends StatelessWidget {
                                       style: TextStyle(
                                         fontFamily: apptheme.fontName,
                                         fontWeight: FontWeight.w500,
-                                        fontSize: 16,
+                                        fontSize: 12,
                                         letterSpacing: 0.2,
                                         color: apptheme.white,
                                       ),
@@ -185,7 +186,7 @@ class MealsView extends StatelessWidget {
                                       style: TextStyle(
                                         fontFamily: apptheme.fontName,
                                         fontWeight: FontWeight.w500,
-                                        fontSize: 20,
+                                        fontSize: 16,
                                         letterSpacing: 0.2,
                                         color: apptheme.white,
                                       ),

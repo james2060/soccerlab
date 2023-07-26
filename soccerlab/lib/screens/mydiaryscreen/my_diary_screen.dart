@@ -30,7 +30,7 @@ class _MyDiaryScreenState extends State<MyDiaryScreen>
     with TickerProviderStateMixin {
   Animation<double>? topBarAnimation;
 
-  String club_name = 'Greens';
+  String club_name = 'GridFC';
 
   List<Widget> listViews = <Widget>[];
   final ScrollController scrollController = ScrollController();
@@ -97,7 +97,7 @@ class _MyDiaryScreenState extends State<MyDiaryScreen>
     listViews.add(
       TitleView(
         titleTxt: "Next Match",
-        subTxt: 'Details',
+        subTxt: 'more',
         animation: Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
             parent: widget.animationController!,
             curve:
@@ -105,6 +105,7 @@ class _MyDiaryScreenState extends State<MyDiaryScreen>
         animationController: widget.animationController!,
       ),
     );
+    //Next Match View
     listViews.add(
       MediterranesnDietView(
         animation: Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
@@ -117,7 +118,7 @@ class _MyDiaryScreenState extends State<MyDiaryScreen>
     listViews.add(
       TitleView(
         titleTxt: 'Last Matches',
-        subTxt: 'Details',
+        subTxt: 'more',
         animation: Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
             parent: widget.animationController!,
             curve:
@@ -125,7 +126,7 @@ class _MyDiaryScreenState extends State<MyDiaryScreen>
         animationController: widget.animationController!,
       ),
     );
-
+    //Next Matches View
     listViews.add(
       MealsListView(
         mainScreenAnimation: Tween<double>(begin: 0.0, end: 1.0).animate(
@@ -284,19 +285,35 @@ class _MyDiaryScreenState extends State<MyDiaryScreen>
                             Expanded(
                               child: Padding(
                                 padding: const EdgeInsets.all(8.0),
-                                child: Text(
-                                  club_name,
-                                  textAlign: TextAlign.left,
-                                  style: TextStyle(
-                                    fontFamily: apptheme.fontName,
-                                    fontWeight: FontWeight.w700,
-                                    fontSize: 22 + 6 - 6 * topBarOpacity,
-                                    letterSpacing: 1.2,
-                                    color: apptheme.darkerText,
-                                  ),
+                                child: Row(
+                                  children: <Widget>[
+                                    //clubname
+                                    Text(
+                                      club_name,
+                                      textAlign: TextAlign.left,
+                                      style: TextStyle(
+                                        fontFamily: apptheme.fontName,
+                                        fontWeight: FontWeight.w700,
+                                        fontSize: 22 + 6 - 6 * topBarOpacity,
+                                        letterSpacing: 1.2,
+                                        color: apptheme.darkerText,
+                                      ),
+                                    ),
+                                    //Club log
+                                    SizedBox(
+                                      width: 38,
+                                      height: 38,
+                                      child: Image.asset(
+                                          'assets/images/club-logo-kMY.png'),
+                                    ),
+                                  ],
                                 ),
+
                               ),
                             ),
+
+
+                            //상단 캘린더 부분  -> 알람 아이콘과 로그아웃 아이콘 필요
                             SizedBox(
                               height: 38,
                               width: 38,

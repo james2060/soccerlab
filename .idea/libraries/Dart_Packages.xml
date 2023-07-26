@@ -23,6 +23,13 @@
             </list>
           </value>
         </entry>
+        <entry key="badges">
+          <value>
+            <list>
+              <option value="$USER_HOME$/.pub-cache/hosted/pub.flutter-io.cn/badges-3.1.1/lib" />
+            </list>
+          </value>
+        </entry>
         <entry key="boolean_selector">
           <value>
             <list>
@@ -589,6 +596,7 @@
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.flutter-io.cn/_flutterfire_internals-1.3.3/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.flutter-io.cn/args-2.4.2/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.flutter-io.cn/async-2.10.0/lib" />
+      <root url="file://$USER_HOME$/.pub-cache/hosted/pub.flutter-io.cn/badges-3.1.1/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.flutter-io.cn/boolean_selector-2.1.1/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.flutter-io.cn/characters-1.2.1/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.flutter-io.cn/clock-1.1.1/lib" />
