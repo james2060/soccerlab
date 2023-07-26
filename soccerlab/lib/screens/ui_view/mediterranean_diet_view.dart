@@ -1,6 +1,8 @@
 import 'package:soccerlab/apptheme.dart';
 import 'package:soccerlab/theme.dart';
+import 'package:soccerlab/apptheme.dart';
 import 'package:flutter/material.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'dart:math' as math;
 
 class MediterranesnDietView extends StatelessWidget {
@@ -8,7 +10,7 @@ class MediterranesnDietView extends StatelessWidget {
   final Animation<double>? animation;
 
   const MediterranesnDietView(
-      {Key? key, this.animationController, this.animation})
+      {Key? key, this.animationController, this.animation, required User user})
       : super(key: key);
 
   @override
@@ -76,16 +78,16 @@ class MediterranesnDietView extends StatelessWidget {
                                               padding: const EdgeInsets.only(
                                                   left: 4, bottom: 2),
                                               child: Text(
-                                                'Eaten',
+                                                'GridFC vs 스트레인져스',
                                                 textAlign: TextAlign.center,
                                                 style: TextStyle(
                                                   fontFamily:
                                                       apptheme.fontName,
-                                                  fontWeight: FontWeight.w500,
+                                                  fontWeight: FontWeight.w600,
                                                   fontSize: 16,
                                                   letterSpacing: -0.1,
-                                                  color: apptheme.grey
-                                                      .withOpacity(0.5),
+                                                  color: apptheme.darkerText
+                                                      ,
                                                 ),
                                               ),
                                             ),
@@ -98,15 +100,14 @@ class MediterranesnDietView extends StatelessWidget {
                                                 SizedBox(
                                                   width: 28,
                                                   height: 28,
-                                                  child: Image.asset(
-                                                      "assets/bottom/eaten.png"),
+                                                  child: Icon(Icons.access_time,color: apptheme.grey)
                                                 ),
                                                 Padding(
                                                   padding:
                                                       const EdgeInsets.only(
                                                           left: 4, bottom: 3),
                                                   child: Text(
-                                                    '${(1127 * animation!.value).toInt()}',
+                                                    '8/4(토) 7-9 AM',
                                                     textAlign: TextAlign.center,
                                                     style: TextStyle(
                                                       fontFamily:
@@ -114,139 +115,54 @@ class MediterranesnDietView extends StatelessWidget {
                                                               .fontName,
                                                       fontWeight:
                                                           FontWeight.w600,
-                                                      fontSize: 16,
+                                                      fontSize: 14,
                                                       color: apptheme
-                                                          .darkerText,
+                                                          .grey.withOpacity(0.5),
                                                     ),
                                                   ),
                                                 ),
-                                                Padding(
-                                                  padding:
-                                                      const EdgeInsets.only(
-                                                          left: 4, bottom: 3),
-                                                  child: Text(
-                                                    'Kcal',
-                                                    textAlign: TextAlign.center,
-                                                    style: TextStyle(
-                                                      fontFamily:
-                                                          apptheme
-                                                              .fontName,
-                                                      fontWeight:
-                                                          FontWeight.w600,
-                                                      fontSize: 12,
-                                                      letterSpacing: -0.2,
-                                                      color: apptheme
-                                                          .grey
-                                                          .withOpacity(0.5),
-                                                    ),
-                                                  ),
-                                                ),
+
+
                                               ],
-                                            )
-                                          ],
-                                        ),
-                                      )
-                                    ],
-                                  ),
-                                  SizedBox(
-                                    height: 8,
-                                  ),
-                                  Row(
-                                    children: <Widget>[
-                                      Container(
-                                        height: 48,
-                                        width: 2,
-                                        decoration: BoxDecoration(
-                                          color: HexColor('#F56E98')
-                                              .withOpacity(0.5),
-                                          borderRadius: BorderRadius.all(
-                                              Radius.circular(4.0)),
-                                        ),
-                                      ),
-                                      Padding(
-                                        padding: const EdgeInsets.all(8.0),
-                                        child: Column(
-                                          mainAxisAlignment:
+                                            ),
+                                            Row(
+                                              mainAxisAlignment:
                                               MainAxisAlignment.center,
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          children: <Widget>[
-                                            Padding(
-                                              padding: const EdgeInsets.only(
-                                                  left: 4, bottom: 2),
-                                              child: Text(
-                                                'Burned',
-                                                textAlign: TextAlign.center,
-                                                style: TextStyle(
-                                                  fontFamily:
-                                                      apptheme.fontName,
-                                                  fontWeight: FontWeight.w500,
-                                                  fontSize: 16,
-                                                  letterSpacing: -0.1,
-                                                  color: apptheme.grey
-                                                      .withOpacity(0.5),
-                                                ),
-                                              ),
-                                            ),
-                                            Row(
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.center,
                                               crossAxisAlignment:
-                                                  CrossAxisAlignment.end,
+                                              CrossAxisAlignment.end,
                                               children: <Widget>[
                                                 SizedBox(
-                                                  width: 28,
-                                                  height: 28,
-                                                  child: Image.asset(
-                                                      "assets/bottom/burned.png"),
+                                                    width: 28,
+                                                    height: 28,
+                                                    child: Icon(Icons.place,color: apptheme.grey)
                                                 ),
                                                 Padding(
                                                   padding:
-                                                      const EdgeInsets.only(
-                                                          left: 4, bottom: 3),
+                                                  const EdgeInsets.only(
+                                                      left: 4, bottom: 3),
                                                   child: Text(
-                                                    '${(102 * animation!.value).toInt()}',
+                                                    '서울디지털운동장',
                                                     textAlign: TextAlign.center,
                                                     style: TextStyle(
                                                       fontFamily:
-                                                          apptheme
-                                                              .fontName,
+                                                      apptheme
+                                                          .fontName,
                                                       fontWeight:
-                                                          FontWeight.w600,
-                                                      fontSize: 16,
+                                                      FontWeight.w600,
+                                                      fontSize: 14,
                                                       color: apptheme
-                                                          .darkerText,
-                                                    ),
-                                                  ),
-                                                ),
-                                                Padding(
-                                                  padding:
-                                                      const EdgeInsets.only(
-                                                          left: 8, bottom: 3),
-                                                  child: Text(
-                                                    'Kcal',
-                                                    textAlign: TextAlign.center,
-                                                    style: TextStyle(
-                                                      fontFamily:
-                                                          apptheme
-                                                              .fontName,
-                                                      fontWeight:
-                                                          FontWeight.w600,
-                                                      fontSize: 12,
-                                                      letterSpacing: -0.2,
-                                                      color: apptheme
-                                                          .grey
-                                                          .withOpacity(0.5),
+                                                          .grey.withOpacity(0.5),
                                                     ),
                                                   ),
                                                 ),
                                               ],
-                                            )
+                                            ),
+
                                           ],
                                         ),
                                       )
                                     ],
-                                  )
+                                  ),
                                 ],
                               ),
                             ),
@@ -280,7 +196,7 @@ class MediterranesnDietView extends StatelessWidget {
                                             CrossAxisAlignment.center,
                                         children: <Widget>[
                                           Text(
-                                            '${(1503 * animation!.value).toInt()}',
+                                            '${(13 * animation!.value).toInt()}',
                                             textAlign: TextAlign.center,
                                             style: TextStyle(
                                               fontFamily:
@@ -293,7 +209,7 @@ class MediterranesnDietView extends StatelessWidget {
                                             ),
                                           ),
                                           Text(
-                                            'Kcal left',
+                                            '참석',
                                             textAlign: TextAlign.center,
                                             style: TextStyle(
                                               fontFamily:

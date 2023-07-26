@@ -85,7 +85,7 @@ class _MatchScreenState extends State<MatchScreen>
             parent: widget.animationController!,
             curve:
             Interval((1 / count) * 1, 1.0, curve: Curves.fastOutSlowIn))),
-        animationController: widget.animationController!,
+        animationController: widget.animationController!, user: widget._user
       ),
     );
     listViews.add(

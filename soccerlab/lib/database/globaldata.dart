@@ -25,5 +25,14 @@ class GlobalData{
   int getNotiCountInt(){
     return this.g_notiCount;
   }
+  int setNotiCountInt(int count)
+  {
+    if(this.g_notiCount > 0)
+      this.g_notiCount = this.g_notiCount - count;
+    else
+      this.g_notiCount = 0;
+
+    return this.g_notiCount;
+  }
 }
 GlobalData gd = GlobalData();

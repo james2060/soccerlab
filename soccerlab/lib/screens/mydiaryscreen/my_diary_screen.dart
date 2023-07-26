@@ -1,4 +1,4 @@
-import 'package:soccerlab/screens/app_homescreen.dart';
+
 import 'package:soccerlab/screens/ui_view/body_measurement.dart';
 import 'package:soccerlab/screens/ui_view/glass_view.dart';
 import 'package:soccerlab/screens/ui_view/mediterranean_diet_view.dart';
@@ -12,7 +12,6 @@ import 'package:soccerlab/authentication/email_password/screens/sign_in_screen.d
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:soccerlab/database/globaldata.dart';
 import 'package:badges/badges.dart' as badges;
-import 'package:soccerlab/database/globaldata.dart';
 class MyDiaryScreen extends StatefulWidget {
 
   const MyDiaryScreen({Key? key, this.animationController, required User user})
@@ -33,12 +32,10 @@ class _MyDiaryScreenState extends State<MyDiaryScreen>
 
   String club_name = 'Greens';
 
-  String s_noticount="";
-
-
   List<Widget> listViews = <Widget>[];
   final ScrollController scrollController = ScrollController();
   double topBarOpacity = 0.0;
+  String sNotiCount = gd.getNotiCountString();
 
   Route _routeToSignInScreen() {
     return PageRouteBuilder(
@@ -48,9 +45,7 @@ class _MyDiaryScreenState extends State<MyDiaryScreen>
         var begin = const Offset(-1.0, 0.0);
         var end = Offset.zero;
         var curve = Curves.ease;
-
-        var tween =
-        Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+        var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
 
         return SlideTransition(
           position: animation.drive(tween),
@@ -72,6 +67,8 @@ class _MyDiaryScreenState extends State<MyDiaryScreen>
         if (topBarOpacity != 1.0) {
           setState(() {
             topBarOpacity = 1.0;
+            //set Notification count
+            sNotiCount = gd.getNotiCountString();
           });
         }
       } else if (scrollController.offset <= 24 &&
@@ -79,12 +76,14 @@ class _MyDiaryScreenState extends State<MyDiaryScreen>
         if (topBarOpacity != scrollController.offset / 24) {
           setState(() {
             topBarOpacity = scrollController.offset / 24;
+            sNotiCount = gd.getNotiCountString();
           });
         }
       } else if (scrollController.offset <= 0) {
         if (topBarOpacity != 0.0) {
           setState(() {
             topBarOpacity = 0.0;
+            sNotiCount = gd.getNotiCountString();
           });
         }
       }
@@ -97,7 +96,7 @@ class _MyDiaryScreenState extends State<MyDiaryScreen>
 
     listViews.add(
       TitleView(
-        titleTxt: widget._user.displayName!,
+        titleTxt: "Next Match",
         subTxt: 'Details',
         animation: Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
             parent: widget.animationController!,
@@ -112,13 +111,13 @@ class _MyDiaryScreenState extends State<MyDiaryScreen>
             parent: widget.animationController!,
             curve:
                 Interval((1 / count) * 1, 1.0, curve: Curves.fastOutSlowIn))),
-        animationController: widget.animationController!,
+        animationController: widget.animationController!, user: widget._user
       ),
     );
     listViews.add(
       TitleView(
-        titleTxt: 'Next Matches',
-        subTxt: 'Customize',
+        titleTxt: 'Last Matches',
+        subTxt: 'Details',
         animation: Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
             parent: widget.animationController!,
             curve:
@@ -315,13 +314,14 @@ class _MyDiaryScreenState extends State<MyDiaryScreen>
                                       badgeColor: Colors.redAccent,
                                     ),
                                     badgeContent: Text(
+                                      //notification count 표시
                                       gd.getNotiCountString(),
                                       style: TextStyle(color: Colors.white),
                                     ),
                                     child: IconButton(icon: Icon(Icons.notifications),
                                         onPressed: () {
-                                          s_noticount = gd.getNotiCountString();
-                                          print("noti count: $s_noticount");
+                                          //스크린을 이동해서 사용자가 알림을 확인한다.
+                                          //읽은 것만 카운팅해서 없애야 한다.
                                         }),
                                   ),
                                 ),
